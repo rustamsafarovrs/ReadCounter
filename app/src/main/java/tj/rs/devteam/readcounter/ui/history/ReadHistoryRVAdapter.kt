@@ -31,6 +31,7 @@ class ReadHistoryRVAdapter(private var items: List<Read>) :
 
     fun replaceData(data: List<Read>) {
         items = data
+        notifyDataSetChanged()
         Log.i("ReadHistoryRVAdapter", "data replaced, new data size: " + data.size)
     }
 

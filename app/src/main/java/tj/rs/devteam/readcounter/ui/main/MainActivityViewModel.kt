@@ -14,12 +14,7 @@ import tj.rs.devteam.readcounter.repository.room.AppDatabase
  */
 
 class MainActivityViewModel(application: Application) : AndroidViewModel(application) {
-    val dao = Room.databaseBuilder(
-        application, AppDatabase::class.java,
-        "appDatabase"
-    ).allowMainThreadQueries()
-        .build()
-        .readDao()
+    val dao = AppDatabase.getInstance(application).readDao()
 
     val repository = DbRepository(dao)
 

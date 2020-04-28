@@ -11,6 +11,7 @@ import tj.rs.devteam.readcounter.model.Read
  */
 @Dao
 interface ReadDao {
+
     @Query("SELECT * FROM read ORDER BY date_time DESC")
     fun getAll(): List<Read>
 

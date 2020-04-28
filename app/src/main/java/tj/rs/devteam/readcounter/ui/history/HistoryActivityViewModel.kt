@@ -13,12 +13,7 @@ import tj.rs.devteam.readcounter.repository.room.AppDatabase
  * (c) 2020 RS DevTeam
  */
 class HistoryActivityViewModel(application: Application) : AndroidViewModel(application) {
-    val dao = Room.databaseBuilder(
-        application, AppDatabase::class.java,
-        "appDatabase"
-    ).allowMainThreadQueries()
-        .build()
-        .readDao()
+    val dao = AppDatabase.getInstance(application).readDao()
 
     val repository = MutableLiveData<List<Read>>()
 
