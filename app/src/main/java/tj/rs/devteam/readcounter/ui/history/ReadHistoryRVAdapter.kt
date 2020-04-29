@@ -15,6 +15,7 @@ import tj.rs.devteam.readcounter.model.Read
 
 class ReadHistoryRVAdapter(private var items: List<Read>) :
     RecyclerView.Adapter<ReadHistoryRVAdapter.ReadHistoryViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReadHistoryViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = RvReadItemBinding.inflate(layoutInflater, parent, false)

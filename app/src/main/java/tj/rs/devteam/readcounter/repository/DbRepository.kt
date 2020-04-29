@@ -1,5 +1,6 @@
 package tj.rs.devteam.readcounter.repository
 
+import tj.rs.devteam.readcounter.model.Read
 import tj.rs.devteam.readcounter.repository.room.ReadDao
 
 /**
@@ -19,5 +20,15 @@ class DbRepository(val dao: ReadDao) {
 
     fun deleteLastRead() {
         dao.deleteLastRead()
+    }
+
+    fun getAll(onHistoryDataReadyCallback: OnHistoryDataReadyCallback) {
+        val d = dao.getAll()
+
+        onHistoryDataReadyCallback.onDataReady(d)
+    }
+
+    interface OnHistoryDataReadyCallback {
+        fun onDataReady(data: List<Read>)
     }
 }
